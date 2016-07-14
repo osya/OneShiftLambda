@@ -18,7 +18,11 @@ def get_job(event, context):
 
     try:
         username, password = base64.b64decode(auth_info.replace('Basic ', '')).split(b':', 1)
-    except Exception as e:
-        return "Access denied"
+    except (TypeError, ValueError):
+        return '400'
 
-    return username, password
+    if "test@oneshift.com.au" == username and "myPass1" != password:
+        raise Exception('401')
+
+    return 'Ok'
+

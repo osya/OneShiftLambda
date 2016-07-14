@@ -1,3 +1,5 @@
+"C:\Program Files\7-Zip\7z.exe" a deployments\OneShiftLambda.zip OneShiftLambda.py
+
 aws lambda create-function ^
 --region eu-central-1 ^
 --function-name getJob ^
